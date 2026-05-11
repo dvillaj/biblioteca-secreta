@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Secreta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Biblioteca Secreta</h1>
+            <p class="subtitle">Bienvenido al servidor web en Docker</p>
+        </header>
+
+        <main>
+            <section class="info">
+                <h2>Estado del Contenedor</h2>
+                <div class="status-box">
+                    <p>✅ El contenedor Docker está funcionando correctamente</p>
+                    <p>🐳 Servidor: Nginx en Alpine Linux</p>
+                    <p>📍 Puertos: 80 (HTTP)</p>
+                    <p id="time">⏰ Hora del servidor: <span id="server-time"></span></p>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Características</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>🚀 Rápido</h3>
+                        <p>Nginx es extremadamente rápido para servir contenido estático</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📦 Ligero</h3>
+                        <p>Imagen Alpine Linux ultra compacta y segura</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🔧 Configurable</h3>
+                        <p>Variables de entorno para personalizar directorios</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎯 Perfecto para NAS</h3>
+                        <p>Optimizado para Synology y otros NAS</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="commands">
+                <h2>Comandos Útiles</h2>
+                <div class="command-box">
+                    <code>docker-compose up -d</code> - Iniciar el contenedor
+                    <br><br>
+                    <code>docker-compose down</code> - Detener el contenedor
+                    <br><br>
+                    <code>docker-compose logs -f</code> - Ver logs en tiempo real
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Biblioteca Secreta | Proyecto Docker</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
