@@ -7,3 +7,4 @@ services:
       - "80:80"
     volumes:
       - ${WEB_DIR}:/usr/share/nginx/html
+      - ${BIB_DIR}:/usr/share/nginx/html/biblioteca:ro
