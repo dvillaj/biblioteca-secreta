@@ -1,6 +1,9 @@
 services:
   web:
     build: .
+    #image: dvillaj/biblioteca-secreta:latest
+    container_name: biblioteca-secreta
+    restart: unless-stopped
 
     healthcheck:
       test: ["CMD-SHELL", "if [ -n \"$WEB_USER\" ] && [ -n \"$WEB_PASSWORD\" ]; then wget -qO- --user \"$WEB_USER\" --password \"$WEB_PASSWORD\" http://127.0.0.1/ >/dev/null 2>&1; else wget -qO- http://127.0.0.1/biblioteca/ >/dev/null 2>&1; fi"]
