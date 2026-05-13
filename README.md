@@ -32,6 +32,7 @@ La carpeta `/biblioteca/` está accesible sin autenticación para facilitar el a
 - Construir e iniciar: `docker-compose up -d`
 - Reconstruir e iniciar: `docker compose up --build --force-recreate`
 - Detener: `docker-compose down`
+- Ver estado del contenedor: `docker compose ps`
 - Ver logs: `docker-compose logs`
 - Entrar en la shell del contenedor: `docker compose exec web sh`
 

@@ -1,11 +1,9 @@
-version: '3.8'
-
 services:
   web:
     build: .
 
     healthcheck:
-      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      test: ["CMD-SHELL", "if [ -n \"$WEB_USER\" ] && [ -n \"$WEB_PASSWORD\" ]; then wget -qO- --user \"$WEB_USER\" --password \"$WEB_PASSWORD\" http://127.0.0.1/ >/dev/null 2>&1; else wget -qO- http://127.0.0.1/biblioteca/ >/dev/null 2>&1; fi"]
       interval: 30s
       timeout: 5s
       retries: 3
@@ -13,9 +11,11 @@ services:
       
     ports:
       - "5991:80"
+
     environment:
-      - WEB_USER=${WEB_USER}
-      - WEB_PASSWORD=${WEB_PASSWORD}
+      - WEB_USER=${WEB_USER:-}
+      - WEB_PASSWORD=${WEB_PASSWORD:-}
+
     volumes:
       - ${WEB_ZIP}:/tmp/web.zip:ro
       - ${BIB_DIR}:/usr/share/nginx/html/biblioteca:ro

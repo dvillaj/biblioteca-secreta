@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+echo "Running entrypoint script..."
+
 # If a ZIP file is mounted at /tmp/web.zip, extract its contents before starting nginx.
 if [ -f "/tmp/web.zip" ]; then
   TMP_EXTRACT=/tmp/web-unzip
@@ -52,5 +54,6 @@ else
   sed -i '/auth_basic/d' /etc/nginx/nginx.conf
 fi
 
+echo "Starting nginx..."
 # Start nginx in the foreground.
 exec nginx -g 'daemon off;'
