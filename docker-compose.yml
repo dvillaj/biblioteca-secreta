@@ -4,7 +4,7 @@ services:
   web:
     build: .
     ports:
-      - "80:80"
+      - "5991:80"
     volumes:
-      - ${WEB_DIR}:/usr/share/nginx/html
+      - ${WEB_ZIP}:/tmp/web.zip:ro
       - ${BIB_DIR}:/usr/share/nginx/html/biblioteca:ro

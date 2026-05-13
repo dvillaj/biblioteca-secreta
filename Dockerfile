@@ -1,8 +1,11 @@
 FROM nginx:alpine
 
-# Copy static web files (optional, if not using volume)
-COPY web /usr/share/nginx/html
+RUN apk add --no-cache unzip
+
+# Copy static web files (fallback) and entrypoint to extract ZIP at runtime
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["docker-entrypoint.sh"]

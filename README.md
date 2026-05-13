@@ -12,13 +12,13 @@ Este proyecto configura un contenedor Docker que utiliza Nginx para servir archi
 
 1. Asegúrate de que Docker esté instalado en tu Synology NAS.
 2. Copia este proyecto a tu NAS (por ejemplo, en `/volume1/docker/web-server`).
-3. El archivo `docker-compose.yml` monta las carpetas del NAS directamente:
-   - `/volume1/web` en `/usr/share/nginx/html`
+3. El archivo `docker-compose.yml` monta el fichero ZIP del sitio web y la carpeta `biblioteca`:
+   - `/volume1/web.zip` en `/tmp/web.zip:ro`
    - `/volume1/biblioteca` en `/usr/share/nginx/html/biblioteca:ro`
 4. Sustituye esos caminos por las rutas reales de tu NAS si son diferentes.
 5. Ejecuta `docker-compose up -d` para iniciar el contenedor.
 
-> Nota: `web/` y `biblioteca/` deben ser las carpetas reales del NAS, no directorios locales dentro del proyecto.
+> Nota: `web.zip` debe contener el contenido estático del sitio web. El servidor extraerá el ZIP en `/usr/share/nginx/html` al arrancar.
 
 ## Comandos
 
