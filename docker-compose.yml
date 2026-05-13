@@ -5,6 +5,9 @@ services:
     build: .
     ports:
       - "5991:80"
+    environment:
+      - WEB_USER=${WEB_USER}
+      - WEB_PASSWORD=${WEB_PASSWORD}
     volumes:
       - ${WEB_ZIP}:/tmp/web.zip:ro
       - ${BIB_DIR}:/usr/share/nginx/html/biblioteca:ro

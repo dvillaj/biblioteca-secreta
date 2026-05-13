@@ -15,10 +15,17 @@ Este proyecto configura un contenedor Docker que utiliza Nginx para servir archi
 3. El archivo `docker-compose.yml` monta el fichero ZIP del sitio web y la carpeta `biblioteca`:
    - `/volume1/web.zip` en `/tmp/web.zip:ro`
    - `/volume1/biblioteca` en `/usr/share/nginx/html/biblioteca:ro`
-4. Sustituye esos caminos por las rutas reales de tu NAS si son diferentes.
-5. Ejecuta `docker-compose up -d` para iniciar el contenedor.
+4. Configura el usuario y contraseña en el archivo `.env` (variables `WEB_USER` y `WEB_PASSWORD`). Si no se configura la contraseña, no habrá autenticación.
+5. Sustituye esos caminos por las rutas reales de tu NAS si son diferentes.
+6. Ejecuta `docker-compose up -d` para iniciar el contenedor.
 
 > Nota: `web.zip` debe contener el contenido estático del sitio web. El servidor extraerá el ZIP en `/usr/share/nginx/html` al arrancar.
+
+## Autenticación
+
+El sitio web requiere autenticación básica si se configura la variable `WEB_PASSWORD` en el archivo `.env`. Usa el usuario configurado en `WEB_USER` (por defecto `admin`) con la contraseña configurada.
+
+La carpeta `/biblioteca/` está accesible sin autenticación para facilitar el acceso a los archivos.
 
 ## Comandos
 
