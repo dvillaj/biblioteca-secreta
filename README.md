@@ -23,7 +23,9 @@ Este proyecto configura un contenedor Docker que utiliza Nginx para servir archi
 ## Comandos
 
 - Construir e iniciar: `docker-compose up -d`
+- Reconstruir e iniciar: `docker compose up --build --force-recreate`
 - Detener: `docker-compose down`
 - Ver logs: `docker-compose logs`
+- Entrar en la shell del contenedor: `docker compose exec web sh`
 
 El sitio web estará disponible en el puerto 80 del NAS.
